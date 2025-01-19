@@ -1,0 +1,238 @@
+/* Stile Generale per il Mobile */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 10px; /* Ridotto per il mobile */
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+    font-size: 1.4em; /* Dimensione ridotta */
+    margin-bottom: 10px; /* Spazio ridotto */
+}
+
+/* Moduli e Input */
+form {
+    flex-direction: column; /* Disposizione verticale per mobile */
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input, select, button {
+    padding: 8px; /* Ridotto per compattezza */
+    font-size: 0.9em;
+}
+
+button {
+    font-size: 0.9em;
+}
+
+/* Vista Settimanale */
+.weekly-view {
+    display: flex;
+    flex-direction: column; /* Disposizione verticale */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Giorni della Settimana */
+.day {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.day h3 {
+    font-size: 1.1em;
+    margin-bottom: 5px; /* Spazio ridotto */
+}
+
+.day ul {
+    list-style: none;
+    padding: 0;
+}
+
+.day ul li {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between; /* Pulsante "Elimina" a destra */
+    align-items: center;
+}
+
+.day ul li .priority-label {
+    margin-left: 10px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Stile per i task in base alla priorità */
+.priority-alta {
+    background-color: #ffcccc;
+    border-left: 5px solid red;
+}
+
+.priority-media {
+    background-color: #fff4cc;
+    border-left: 5px solid orange;
+}
+
+.priority-bassa {
+    background-color: #ccffcc;
+    border-left: 5px solid green;
+}
+
+/* Pulsante "Elimina" */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 8px; /* Ridotto per compattezza */
+    border-radius: 3px;
+    font-size: 0.8em; /* Dimensione ridotta */
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* Range della Settimana */
+.week-range {
+    text-align: center;
+    font-size: 1em; /* Dimensione ridotta */
+    margin-bottom: 10px; /* Spazio ridotto */
+    color: #333;
+    font-weight: bold;
+}
+
+/* Pulsanti di Navigazione */
+#navigation {
+    display: flex;
+    flex-direction: column; /* Verticale per mobile */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#navigation button {
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+/* Pulsante Home */
+.home-button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design per Schermi Piccoli */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    .day ul li {
+        flex-direction: column; /* Pulsante "Elimina" sotto il testo */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    #navigation button {
+        width: 100%; /* Larghezza piena */
+    }
+
+    .home-button {
+        width: 100%; /* Larghezza piena */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1em;
+    }
+
+    .delete-button {
+        font-size: 0.7em;
+        padding: 4px 6px;
+    }
+
+    #navigation button {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+
+    .home-button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+
+/* Stile per i riquadri dei promemoria */
+li {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    position: relative;
+    border-left: 5px solid gray; /* Colore dinamico basato sulla priorità */
+    margin-bottom: 20px; /* Spazio tra i riquadri */
+    text-align: left; /* Allineamento del testo */
+}
+
+/* Colori per la priorità */
+.priority-alta {
+    border-left-color: red;
+    background-color: #ffe6e6; /* Sfondo tenue rosso */
+}
+
+.priority-media {
+    border-left-color: orange;
+    background-color: #fff4cc; /* Sfondo tenue arancione */
+}
+
+.priority-bassa {
+    border-left-color: green;
+    background-color: #e6ffe6; /* Sfondo tenue verde */
+}
+
+/* Pulsante "Elimina" nei riquadri */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* Trasforma la prima lettera della descrizione del task in maiuscolo */
+.weekly-view .task::first-letter {
+    text-transform: capitalize;
+}

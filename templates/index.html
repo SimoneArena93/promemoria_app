@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promemoria</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Promemoria</h1>
+        <!-- Form per aggiungere nuovi promemoria -->
+        <form id="addForm">
+            <label for="text">Descrizione:</label>
+            <input type="text" id="text" placeholder="Scrivi qui..." required />
+
+            <label for="dueDate">Data (opzionale):</label>
+            <input type="date" id="dueDate" placeholder="Data (opzionale)" />
+
+            <label for="time">Ora (opzionale):</label>
+            <input type="time" id="time" placeholder="Ora (opzionale)" />
+
+            <label for="dateType">Tipo di data:</label>
+            <select id="dateType">
+                <option value="esatta">Data esatta</option>
+                <option value="entro-giorno">Entro il giorno</option>
+            </select>
+
+            <label for="priority">Priorità:</label>
+            <select id="priority">
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Bassa">Bassa</option>
+            </select>
+
+            <label for="recurrence">Ricorrenza:</label>
+            <select id="recurrence">
+                <option value="nessuna">Nessuna</option>
+                <option value="giornaliera">Giornaliera</option>
+                <option value="settimanale">Settimanale</option>
+                <option value="mensile">Mensile</option>
+            </select>
+
+            <button type="submit">Aggiungi</button>
+        </form>
+
+        <!-- Filtro per data -->
+        <div id="filters">
+            <label for="startDate">Da:</label>
+            <input type="date" id="startDate" />
+            <label for="endDate">A:</label>
+            <input type="date" id="endDate" />
+            <button onclick="filterRemindersByDate()">Filtra</button>
+        </div>            
+
+        <!-- Lista dei promemoria -->
+        <div id="loadingMessage" style="display: none;">Caricamento...</div>
+        <ul id="remindersList"></ul>
+
+        <!-- Controlli -->
+        <div id="controls">
+            <button onclick="deleteAllReminders()">Cancella tutti i promemoria</button>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+<button onclick="window.location.href='/list-view'">Vedi Elenco Giornaliero</button>
+<button onclick="window.location.href='/weekly-view'">Vedi Vista Settimanale</button>
+</html>

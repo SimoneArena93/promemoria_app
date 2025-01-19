@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Settimanale</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Vista Settimanale</h1>
+        <!-- Range della settimana -->
+        <div id="weekRange" class="week-range"></div>
+        <!-- Contenitore per i giorni della settimana -->
+        <div id="weeklyView" class="weekly-view"></div>
+        <!-- Pulsanti di navigazione -->
+        <div id="navigation">
+            <button onclick="fetchWeeklyReminders('previous')">← Settimana Precedente</button>
+            <button onclick="fetchWeeklyReminders('next')">Settimana Successiva →</button>
+        </div>
+        <button onclick="window.location.href='/'" class="home-button">Torna alla Home</button>
+    </div>
+    <script src="/static/js/weekly_view.js"></script>
+</body>
+</html>
