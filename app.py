@@ -53,6 +53,7 @@ def generate_recurrence_dates(start_date, recurrence_type, num_events=10):
 
     return dates
 
+
 # Aggiungi un nuovo promemoria
 @app.route("/api/reminders", methods=["POST"])
 def add_reminder():
@@ -71,23 +72,26 @@ def add_reminder():
     conn = sqlite3.connect("database.db")
     c = conn.cursor()
 
-    if date_type == "entro-giorno" and due_date:
-        # Aggiungi promemoria con il tipo "Entro il giorno"
-        c.execute(
-            "INSERT INTO reminders (text, due_date, time, date_type, priority, recurrence) VALUES (?, ?, ?, ?, ?, ?)",
-            (text, due_date, time, "entro-giorno", priority, recurrence),
-        )
+    if recurrence != "nessuna" and due_date:
+        # Genera le date ricorrenti
+        recurrence_dates = generate_recurrence_dates(due_date, recurrence)
+        for date in recurrence_dates:
+            c.execute(
+                "INSERT INTO reminders (text, due_date, time, date_type, priority, recurrence) VALUES (?, ?, ?, ?, ?, ?)",
+                (text, date, time, date_type, priority, recurrence),
+            )
     else:
-        # Aggiungi promemoria con il tipo "Data esatta"
+        # Aggiungi un singolo promemoria
         c.execute(
             "INSERT INTO reminders (text, due_date, time, date_type, priority, recurrence) VALUES (?, ?, ?, ?, ?, ?)",
-            (text, due_date, time, "esatta", priority, recurrence),
+            (text, due_date, time, date_type, priority, recurrence),
         )
 
     conn.commit()
     conn.close()
 
     return jsonify({"message": "Promemoria aggiunto con successo"})
+
 
 
 
